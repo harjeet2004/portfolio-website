@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harjeet Singh Pannu — Portfolio</title>
+<meta name="description" content="Harjeet Singh Pannu — ECE graduate, VIT Chennai. Ex-JPMorgan CIB Research Analyst Intern, WorldQuant top-100 global rank. Finance, hardware, and AI systems.">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS (CDN) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          heading: ['Space Grotesk', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+        },
+        colors: {
+          accent: '#e8b54d',
+        }
+      }
+    }
+  }
+</script>
+
+<!-- AOS (Animate on Scroll) -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-page text-main font-body">
+
+<!-- Three.js ambient particle background -->
+<canvas id="bg3d" aria-hidden="true"></canvas>
+
+<!-- Ambient background glows -->
+<div class="bg-orbs" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- Scroll progress bar -->
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- ===== Navbar ===== -->
+<header id="site-header" class="fixed top-0 left-0 w-full z-50 border-b border-subtle bg-surface/80 backdrop-blur-md">
+  <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+    <a href="#home" class="flex items-center gap-2.5 font-heading text-lg font-semibold tracking-tight text-main">
+      <span class="brand-mark">HP</span> Harjeet<span class="text-accent">.</span>
+    </a>
+
+    <ul id="nav-links" class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#achievements" class="nav-link">Achievements</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#education" class="nav-link">Education</a></li>
+      <li><a href="#resume" class="nav-link">Resume</a></li>
+      <li><a href="#connect" class="nav-link">Connect</a></li>
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <button id="theme-toggle" aria-label="Toggle light and dark theme" class="w-9 h-9 flex items-center justify-center rounded-full border border-subtle text-muted hover:text-accent hover:border-accent transition-colors">
+        <i data-lucide="sun" id="icon-sun" class="w-4 h-4 hidden"></i>
+        <i data-lucide="moon" id="icon-moon" class="w-4 h-4"></i>
+      </button>
+      <button id="menu-toggle" aria-label="Open menu" class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-subtle text-muted">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <ul id="mobile-nav" class="mobile-nav md:hidden flex flex-col gap-1 px-6 text-sm font-medium border-t border-subtle">
+    <li><a href="#home" class="mobile-nav-link">Home</a></li>
+    <li><a href="#about" class="mobile-nav-link">About</a></li>
+    <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+    <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+    <li><a href="#achievements" class="mobile-nav-link">Achievements</a></li>
+    <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+    <li><a href="#education" class="mobile-nav-link">Education</a></li>
+    <li><a href="#resume" class="mobile-nav-link">Resume</a></li>
+    <li><a href="#connect" class="mobile-nav-link">Connect</a></li>
+  </ul>
+</header>
+
+<!-- ===== Hero ===== -->
+<section id="home" class="relative min-h-screen flex items-center pt-32 pb-20 px-6 overflow-hidden">
+  <div class="max-w-6xl mx-auto w-full grid md:grid-cols-[1.25fr_0.75fr] gap-14 items-center relative z-10">
+    <div>
+      <p class="hero-fade hero-fade-1 inline-flex items-center gap-2 text-accent font-medium tracking-widest mb-5 text-xs uppercase border border-accent/30 bg-accent/5 rounded-full px-4 py-1.5">
+        <span class="pulse-dot"></span> Open to opportunities
+      </p>
+      <h1 class="hero-fade hero-fade-1 font-heading text-4xl sm:text-5xl lg:text-[4.2rem] font-bold leading-[1.08] mb-5">
+        Harjeet Singh<br><span class="gradient-text">Pannu</span>
+      </h1>
+      <div class="hero-fade hero-fade-2 h-9 mb-6 flex items-center">
+        <span id="role-text" class="text-xl sm:text-2xl font-heading font-medium text-accent"></span>
+        <span class="role-cursor"></span>
+      </div>
+      <p class="hero-fade hero-fade-3 text-muted text-base sm:text-lg max-w-xl mb-9 leading-relaxed">
+        Electronics &amp; Communication Engineering graduate from VIT Chennai — ex-JPMorgan CIB Research Analyst Intern, and WorldQuant top-100 global rank holder.
+      </p>
+      <div class="hero-fade hero-fade-4 flex flex-wrap gap-4 mb-10">
+        <a href="#resume" class="btn-primary">
+          <i data-lucide="file-text" class="w-4 h-4"></i> View Resume
+        </a>
+        <a href="#connect" class="btn-secondary">
+          <i data-lucide="send" class="w-4 h-4"></i> Contact
+        </a>
+        <a href="https://www.linkedin.com/in/harjeet-singh-pannu-677b2524b/" target="_blank" rel="noopener" class="btn-secondary">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg> LinkedIn
+        </a>
+      </div>
+      <div class="hero-fade hero-fade-4 flex flex-wrap gap-2.5">
+        <span class="chip"><i data-lucide="building-2" class="w-3.5 h-3.5 text-accent"></i> Ex-JPMorgan CIB</span>
+        <span class="chip"><i data-lucide="trophy" class="w-3.5 h-3.5 text-accent"></i> WorldQuant Top 100</span>
+        <span class="chip"><i data-lucide="lightbulb" class="w-3.5 h-3.5 text-accent"></i> Patent Under Review</span>
+      </div>
+    </div>
+
+    <div class="hero-fade hero-fade-2 flex justify-center md:justify-end">
+      <div class="photo-frame">
+        <div class="photo-ring" aria-hidden="true"></div>
+        <div class="photo-glow" aria-hidden="true"></div>
+        <div class="photo-mask">
+          <img src="assets/images/photo.jpeg" alt="Portrait of Harjeet Singh Pannu" class="w-full h-full object-cover object-[center_18%]">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#about" class="scroll-hint" aria-label="Scroll to About section">
+    <i data-lucide="chevron-down" class="w-5 h-5"></i>
+  </a>
+</section>
+
+<!-- ===== About ===== -->
+<section id="about" class="relative py-28 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div data-aos="fade-up">
+      <p class="section-eyebrow">01 · Who I Am</p>
+      <h2 class="section-heading">About</h2>
+    </div>
+    <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-start">
+      <div data-aos="fade-up" data-aos-delay="100" class="space-y-5 text-muted text-base sm:text-lg leading-relaxed">
+        <p>
+          I'm an Electronics &amp; Communication Engineering graduate from VIT Chennai (CGPA 9.4/10) who works at the intersection of finance and hardware. During my six-month internship at JPMorgan Chase &amp; Co.'s Commercial &amp; Investment Banking division, I conducted company, industry, and market research supporting institutional credit and risk evaluation — turning financial statements and earnings data into intelligence briefs for senior stakeholders.
+        </p>
+        <p>
+          On the engineering side, I'm certified in VLSI Design &amp; Verification, have designed and simulated RF antennas in ANSYS HFSS, and hold a patent under review for a multi-biometric UPI payment authentication system. My rank of #79 among 76,886 in the WorldQuant Quantitative Championship reflects the same quantitative rigor I bring to both worlds. Off the clock, I'm a gaming enthusiast fascinated by AI-driven game systems — adaptive difficulty, NPC behavior, and the systems-thinking that connects a game economy to a balance sheet.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+          <i data-lucide="graduation-cap" class="w-5 h-5 text-accent mb-3"></i>
+          <p class="stat-number"><span class="count-up" data-target="9.4" data-decimals="1">0</span><span class="text-base font-medium text-muted">/10</span></p>
+          <p class="stat-label">CGPA at VIT Chennai</p>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="180">
+          <i data-lucide="trophy" class="w-5 h-5 text-accent mb-3"></i>
+          <p class="stat-number">#<span class="count-up" data-target="79">0</span></p>
+          <p class="stat-label">WorldQuant Rank / 76,886</p>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="260">
+          <i data-lucide="lightbulb" class="w-5 h-5 text-accent mb-3"></i>
+          <p class="stat-number"><span class="count-up" data-target="1">0</span></p>
+          <p class="stat-label">Patent Under Review</p>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="340">
+          <i data-lucide="briefcase" class="w-5 h-5 text-accent mb-3"></i>
+          <p class="stat-number"><span class="count-up" data-target="6">0</span> <span class="text-base font-medium text-muted">mo</span></p>
+          <p class="stat-label">JPMorgan CIB Internship</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Experience ===== -->
+<section id="experience" class="relative py-28 px-6 section-alt">
+  <div class="max-w-6xl mx-auto">
+    <div data-aos="fade-up">
+      <p class="section-eyebrow">02 · Where I've Worked</p>
+      <h2 class="section-heading">Experience</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-dot"></div>
+        <div class="card p-8">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-6">
+            <div class="flex items-start gap-4">
+              <div class="icon-tile"><i data-lucide="landmark" class="w-5 h-5"></i></div>
+              <div>
+                <h3 class="font-heading text-xl font-semibold">CRG Research Analyst Intern</h3>
+                <p class="text-accent font-medium">JPMorgan Chase &amp; Co. — CIB Division</p>
+              </div>
+            </div>
+            <div class="text-sm text-muted sm:text-right shrink-0">
+              <p class="inline-flex items-center gap-1.5 sm:justify-end"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Mumbai, India</p>
+              <p class="inline-flex items-center gap-1.5 sm:justify-end mt-1"><i data-lucide="calendar" class="w-3.5 h-3.5"></i> Jan – Jun 2026</p>
+            </div>
+          </div>
+          <ul class="space-y-3 text-muted leading-relaxed">
+            <li class="flex gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-accent mt-1 shrink-0"></i>Conducted company, industry, and market research supporting institutional credit and risk evaluation across multiple sectors.</li>
+            <li class="flex gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-accent mt-1 shrink-0"></i>Analyzed financial statements, earnings releases, and performance metrics to build data-backed intelligence briefs for stakeholders.</li>
+            <li class="flex gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-accent mt-1 shrink-0"></i>Authored research reports, executive summaries, and analytical presentations reviewed by senior CIB stakeholders.</li>
+            <li class="flex gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-accent mt-1 shrink-0"></i>Applied quantitative and qualitative research frameworks to track business trends, competitive positioning, and sector-specific risk factors.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Projects ===== -->
+<section id="projects" class="relative py-28 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div data-aos="fade-up">
+      <p class="section-eyebrow">03 · What I've Built</p>
+      <h2 class="section-heading">Projects</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-7">
+
+      <div class="card project-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="project-cover" style="--cover-hue: #10b981;">
+          <i data-lucide="bot" class="cover-icon"></i>
+          <span class="cover-label">AI · Robotics</span>
+        </div>
+        <div class="p-7 flex flex-col flex-1">
+          <h3 class="font-heading text-lg font-semibold mb-2">IntelliWeed — AI-Powered Autonomous Agricultural Robot</h3>
+          <p class="text-muted text-sm leading-relaxed mb-5 flex-1">An AI-powered weed-removal robot built with YOLOv8, OpenCV, and Raspberry Pi — 90% detection accuracy, 40% less manual labor.</p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="tag">YOLOv8</span><span class="tag">OpenCV</span><span class="tag">Raspberry Pi</span>
+          </div>
+          <div class="flex gap-5 text-sm">
+            <a href="https://drive.google.com/file/d/1G3kJNpkTfUP36pPS-RpV8IqGhLtNMZwv/view?usp=sharing" target="_blank" rel="noopener" class="project-link"><i data-lucide="file-text" class="w-4 h-4"></i> Brochure</a>
+            <a href="https://www.youtube.com/watch?v=LvbuCR-bnKw" target="_blank" rel="noopener" class="project-link"><i data-lucide="play-circle" class="w-4 h-4"></i> Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card project-card" data-aos="fade-up" data-aos-delay="180">
+        <div class="project-cover" style="--cover-hue: #e07a4f;">
+          <i data-lucide="fingerprint" class="cover-icon"></i>
+          <span class="cover-label">Fintech · Security</span>
+          <span class="cover-badge">Patent Under Review</span>
+        </div>
+        <div class="p-7 flex flex-col flex-1">
+          <h3 class="font-heading text-lg font-semibold mb-2">Smart Multi-Biometric UPI Payment Authentication System</h3>
+          <p class="text-muted text-sm leading-relaxed mb-5 flex-1">A multi-factor biometric authentication system combining fingerprint and permutation-based entry for securing UPI payments — cut fraud 40%.</p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="tag">Embedded Systems</span><span class="tag">Biometrics</span><span class="tag">UPI</span>
+          </div>
+          <div class="flex gap-5 text-sm">
+            <a href="https://github.com/sochenge/AuthenticatorApp" target="_blank" rel="noopener" class="project-link"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card project-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="project-cover" style="--cover-hue: #2dd4bf;">
+          <i data-lucide="sprout" class="cover-icon"></i>
+          <span class="cover-label">IoT · Automation</span>
+        </div>
+        <div class="p-7 flex flex-col flex-1">
+          <h3 class="font-heading text-lg font-semibold mb-2">Smart Plant Health Monitoring System</h3>
+          <p class="text-muted text-sm leading-relaxed mb-5 flex-1">A real-time IoT sensing and automated irrigation-control platform built with Arduino and Blynk — improved water-usage efficiency by 50%.</p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="tag">IoT</span><span class="tag">Arduino</span><span class="tag">Blynk</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card project-card" data-aos="fade-up" data-aos-delay="180">
+        <div class="project-cover" style="--cover-hue: #60a5fa;">
+          <i data-lucide="radio-tower" class="cover-icon"></i>
+          <span class="cover-label">RF · Antenna Design</span>
+        </div>
+        <div class="p-7 flex flex-col flex-1">
+          <h3 class="font-heading text-lg font-semibold mb-2">Stepped Bowtie Antenna for Underwater Wireless Communication</h3>
+          <p class="text-muted text-sm leading-relaxed mb-5 flex-1">Designed and simulated a 10 GHz stepped bowtie antenna in ANSYS HFSS, tested across air, saline, salt, and distilled water environments.</p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="tag">ANSYS HFSS</span><span class="tag">RF Design</span><span class="tag">10 GHz</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Achievements ===== -->
+<section id="achievements" class="relative py-28 px-6 section-alt">
+  <div class="max-w-6xl mx-auto">
+    <div data-aos="fade-up">
+      <p class="section-eyebrow">04 · Recognition</p>
+      <h2 class="section-heading">Achievements</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="badge" data-aos="fade-up" data-aos-delay="80"><div class="badge-icon"><i data-lucide="trophy" class="w-5 h-5"></i></div><span>WorldQuant Rank <strong class="text-accent">#79</strong> / 76,886</span></div>
+      <div class="badge" data-aos="fade-up" data-aos-delay="140"><div class="badge-icon"><i data-lucide="award" class="w-5 h-5"></i></div><span>Academic Excellence Award, VIT ECE</span></div>
+      <div class="badge" data-aos="fade-up" data-aos-delay="200"><div class="badge-icon"><i data-lucide="medal" class="w-5 h-5"></i></div><span>1st Runner-Up, Pitch-A-Thon (70+ teams)</span></div>
+      <div class="badge" data-aos="fade-up" data-aos-delay="80"><div class="badge-icon"><i data-lucide="globe" class="w-5 h-5"></i></div><span>International Research Finalist, ICDTSA</span></div>
+      <div class="badge" data-aos="fade-up" data-aos-delay="140"><div class="badge-icon"><i data-lucide="cpu" class="w-5 h-5"></i></div><span>VLSI Design &amp; Verification Certified</span></div>
+      <div class="badge" data-aos="fade-up" data-aos-delay="200"><div class="badge-icon"><i data-lucide="lightbulb" class="w-5 h-5"></i></div><span>Patent Under Review</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Skills ===== -->
+<section id="skills" class="relative py-28 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div data-aos="fade-up">
+      <p class="section-eyebrow">05 · What I Work With</p>
+      <h2 class="section-heading">Skills</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-7">
+      <div class="card p-7" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon-tile mb-5"><i data-lucide="line-chart" class="w-5 h-5"></i></div>
+        <h3 class="font-heading text-base font-semibold mb-4">Financial &amp; Analytical</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">Financial Statement Analysis</span>
+          <span class="tag">Credit Analysis</span>
+          <span class="tag">Market Research</span>
+          <span class="tag">Quantitative Research</span>
+          <span class="tag">Business Intelligence</span>
+        </div>
+      </div>
+      <div class="card p-7" data-aos="fade-up" data-aos-delay="180">
+        <div class="icon-tile mb-5"><i data-lucide="code-2" class="w-5 h-5"></i></div>
+        <h3 class="font-heading text-base font-semibold mb-4">Programming &amp; Data</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">MATLAB</span>
+          <span class="tag">Java</span>
+          <span class="tag">C++</span>
+          <span class="tag">Verilog</span>
+        </div>
+      </div>
+      <div class="card p-7" data-aos="fade-up" data-aos-delay="260">
+        <div class="icon-tile mb-5"><i data-lucide="wrench" class="w-5 h-5"></i></div>
+        <h3 class="font-heading text-base font-semibold mb-4">Tools &amp; Platforms</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">Excel (Advanced)</span>
+          <span class="tag">PowerPoint</span>
+          <span class="tag">Git</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">ANSYS HFSS</span>
+          <span class="tag">Cadence</span>
+          <span class="tag">ModelSim</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Education ===== -->
+<section id="education" class="relative py-28 px-6 section-alt">
+  <div class="max-w-6xl mx-auto">
+    <div data-aos="fade-up">
+      <p class="section-eyebrow">06 · Where I Studied</p>
+      <h2 class="section-heading">Education</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-dot"></div>
+        <div class="card p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div class="flex items-center gap-4">
+            <div class="icon-tile"><i data-lucide="graduation-cap" class="w-5 h-5"></i></div>
+            <div>
+              <h3 class="font-heading font-semibold">VIT Chennai</h3>
+              <p class="text-muted text-sm">B.Tech, Electronics &amp; Communication Engineering</p>
+            </div>
+          </div>
+          <div class="text-sm sm:text-right shrink-0">
+            <p class="text-accent font-semibold">CGPA 9.4 / 10</p>
+            <p class="text-muted">2022 – 2026</p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="180">
+        <div class="timeline-dot"></div>
+        <div class="card p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div class="flex items-center gap-4">
+            <div class="icon-tile"><i data-lucide="school" class="w-5 h-5"></i></div>
+            <div>
+              <h3 class="font-heading font-semibold">Apeejay School, Kolkata</h3>
+              <p class="text-muted text-sm">CBSE — Class XII</p>
+            </div>
+          </div>
+          <div class="text-sm sm:text-right shrink-0">
+            <p class="text-accent font-semibold">98%</p>
+            <p class="text-muted">2021 – 2022</p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="260">
+        <div class="timeline-dot"></div>
+        <div class="card p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div class="flex items-center gap-4">
+            <div class="icon-tile"><i data-lucide="school" class="w-5 h-5"></i></div>
+            <div>
+              <h3 class="font-heading font-semibold">Podar International School, Aurangabad</h3>
+              <p class="text-muted text-sm">CBSE — Class X</p>
+            </div>
+          </div>
+          <div class="text-sm sm:text-right shrink-0">
+            <p class="text-accent font-semibold">96%</p>
+            <p class="text-muted">2019 – 2020</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Resume ===== -->
+<section id="resume" class="relative py-28 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div data-aos="fade-up">
+      <p class="section-eyebrow">07 · Take One With You</p>
+      <h2 class="section-heading">Resume</h2>
+      <p class="text-muted mb-12 max-w-2xl -mt-6">Three tailored versions — download the one most relevant to what you're looking for.</p>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-7">
+      <a href="assets/resumes/resume-finance.pdf" download class="resume-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon-tile mb-5"><i data-lucide="line-chart" class="w-5 h-5"></i></div>
+        <h3 class="font-heading font-semibold mb-1.5">Finance</h3>
+        <p class="text-muted text-sm mb-6 flex-1">Research &amp; credit analysis focus</p>
+        <span class="resume-cta"><i data-lucide="download" class="w-4 h-4"></i> Download PDF</span>
+      </a>
+      <a href="assets/resumes/resume-semiconductor.pdf" download class="resume-card" data-aos="fade-up" data-aos-delay="180">
+        <div class="icon-tile mb-5"><i data-lucide="cpu" class="w-5 h-5"></i></div>
+        <h3 class="font-heading font-semibold mb-1.5">Semiconductor</h3>
+        <p class="text-muted text-sm mb-6 flex-1">VLSI &amp; hardware engineering focus</p>
+        <span class="resume-cta"><i data-lucide="download" class="w-4 h-4"></i> Download PDF</span>
+      </a>
+      <a href="assets/resumes/resume-gaming.pdf" download class="resume-card" data-aos="fade-up" data-aos-delay="260">
+        <div class="icon-tile mb-5"><i data-lucide="gamepad-2" class="w-5 h-5"></i></div>
+        <h3 class="font-heading font-semibold mb-1.5">Gaming</h3>
+        <p class="text-muted text-sm mb-6 flex-1">AI-driven systems &amp; interactive design focus</p>
+        <span class="resume-cta"><i data-lucide="download" class="w-4 h-4"></i> Download PDF</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Connect ===== -->
+<section id="connect" class="relative py-28 px-6 section-alt">
+  <div class="max-w-6xl mx-auto">
+    <div data-aos="fade-up" class="text-center mb-14">
+      <p class="section-eyebrow justify-center">08 · Let's Talk</p>
+      <h2 class="section-heading mb-4">Connect With Me</h2>
+      <p class="text-muted max-w-2xl mx-auto">Have a role, a project, or just want to talk research — reach out below.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-7 mb-12">
+      <!-- Contact form -->
+      <div class="card p-8" data-aos="fade-up" data-aos-delay="100">
+        <!-- Replace YOUR_FORM_ID after creating a free form at formspree.io -->
+        <form action="https://formspree.io/f/xgogwkkr" method="POST" class="space-y-5">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class="block text-sm font-medium mb-2">Name</label>
+              <input type="text" id="name" name="name" required class="form-input" placeholder="Your name">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium mb-2">Email</label>
+              <input type="email" id="email" name="email" required class="form-input" placeholder="you@example.com">
+            </div>
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium mb-2">Message</label>
+            <textarea id="message" name="message" rows="5" required class="form-input resize-none" placeholder="What's on your mind?"></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full sm:w-auto">
+            <i data-lucide="send" class="w-4 h-4"></i> Send Message
+          </button>
+        </form>
+      </div>
+
+      <div class="flex flex-col gap-7">
+        <!-- WhatsApp card -->
+        <a href="https://wa.me/917259466505?text=Hi%20Harjeet%2C%20I%20came%20across%20your%20portfolio..." target="_blank" rel="noopener" class="whatsapp-card flex-1" data-aos="fade-up" data-aos-delay="180">
+          <svg class="w-10 h-10 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          <div>
+            <h3 class="font-heading text-lg font-semibold mb-1">Chat on WhatsApp</h3>
+            <p class="text-sm opacity-90 flex items-center gap-2">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#06210f] opacity-60"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-[#06210f]"></span>
+              </span>
+              Tap to chat — I usually reply quickly.
+            </p>
+          </div>
+        </a>
+
+        <!-- Quick contact links -->
+        <div class="card p-6 flex flex-col gap-4" data-aos="fade-up" data-aos-delay="260">
+          <p class="icon-link cursor-default"><i data-lucide="mail" class="w-4 h-4"></i> harjeetpannu2004@gmail.com <span class="text-xs opacity-70">(or just use the form)</span></p>
+          <a href="tel:+917259466505" class="icon-link"><i data-lucide="phone" class="w-4 h-4"></i> +91 72594 66505</a>
+          <a href="https://www.linkedin.com/in/harjeet-singh-pannu-677b2524b/" target="_blank" rel="noopener" class="icon-link"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg> LinkedIn</a>
+          <a href="https://github.com/harjeet2004" target="_blank" rel="noopener" class="icon-link"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="border-t border-subtle py-12 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+    <div>
+      <p class="font-heading font-semibold text-lg mb-1.5">Harjeet<span class="text-accent">.</span></p>
+      <p class="text-muted text-sm max-w-xs">Finance-minded engineer building at the intersection of research, hardware, and AI.</p>
+    </div>
+
+    <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+      <li><a href="#home" class="hover:text-accent transition-colors">Home</a></li>
+      <li><a href="#about" class="hover:text-accent transition-colors">About</a></li>
+      <li><a href="#projects" class="hover:text-accent transition-colors">Projects</a></li>
+      <li><a href="#resume" class="hover:text-accent transition-colors">Resume</a></li>
+      <li><a href="#connect" class="hover:text-accent transition-colors">Connect</a></li>
+    </ul>
+  </div>
+  <p class="text-center text-xs text-muted mt-10">&copy; <span id="year"></span> Harjeet Singh Pannu. All rights reserved.</p>
+</footer>
+
+<div id="cursor-ring" class="cursor-ring" aria-hidden="true"></div>
+
+<button id="back-to-top" class="back-to-top" aria-label="Back to top">
+  <i data-lucide="arrow-up" class="w-4 h-4"></i>
+</button>
+
+<!-- ===== AI Chat Widget ===== -->
+<div id="chat-widget">
+  <button id="chat-toggle" class="chat-toggle" aria-label="Ask a question about Harjeet" aria-expanded="false">
+    <i data-lucide="message-square-text" class="w-6 h-6" id="chat-icon-open"></i>
+    <i data-lucide="x" class="w-6 h-6 hidden" id="chat-icon-close"></i>
+    <span class="chat-toggle-ping" aria-hidden="true"></span>
+  </button>
+
+  <div id="chat-panel" class="chat-panel" role="dialog" aria-label="Chat about Harjeet" aria-hidden="true">
+    <div class="chat-panel-header">
+      <div class="flex items-center gap-3">
+        <div class="chat-avatar"><i data-lucide="sparkles" class="w-4 h-4"></i></div>
+        <div>
+          <p class="font-heading font-semibold text-sm leading-tight">Ask about Harjeet</p>
+          <p class="text-xs text-muted leading-tight">AI assistant · answers from his profile</p>
+        </div>
+      </div>
+    </div>
+    <div id="chat-messages" class="chat-messages">
+      <div class="chat-bubble chat-bubble-bot">
+        Hi! I'm an AI assistant trained on Harjeet's background. Ask me about his experience at JPMorgan, his projects, skills, or education.
+      </div>
+    </div>
+    <form id="chat-form" class="chat-input-row">
+      <input id="chat-input" type="text" class="chat-input" placeholder="Ask a question…" autocomplete="off" maxlength="600">
+      <button type="submit" class="chat-send" aria-label="Send message">
+        <i data-lucide="send" class="w-4 h-4"></i>
+      </button>
+    </form>
+    <p class="chat-disclaimer">AI-generated answers based on Harjeet's resume &amp; portfolio content — may occasionally be imperfect.</p>
+  </div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/bg3d.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>
