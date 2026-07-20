@@ -54,6 +54,47 @@ const CHAT_API_URL = 'https://portfolio-website-five-chi-57.vercel.app/api/chat'
     return el;
   }
 
+  // ===== Contact-intent shortcut =====
+  // If the visitor's message (or the bot's reply) signals they want to reach Harjeet,
+  // surface real one-click actions right in the chat instead of the bot just telling
+  // them to scroll down to the Connect section.
+  const CONTACT_INTENT_RE = /\b(contact|reach( him| out)?|email|e-mail|whats ?app|phone|call him|get in touch|connect with|talk to him|speak (to|with) him|hire him|interview him|his number|his email)\b/i;
+
+  function looksLikeContactIntent(userText, botText) {
+    return CONTACT_INTENT_RE.test(userText) || CONTACT_INTENT_RE.test(botText || '');
+  }
+
+  function goToContactForm() {
+    setOpen(false);
+    const section = document.getElementById('connect');
+    const nameInput = document.getElementById('name');
+    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => nameInput && nameInput.focus(), 550);
+  }
+
+  function addContactActions() {
+    const row = document.createElement('div');
+    row.className = 'chat-action-row';
+
+    const formBtn = document.createElement('button');
+    formBtn.type = 'button';
+    formBtn.className = 'chat-action-btn';
+    formBtn.textContent = '📝 Open contact form';
+    formBtn.addEventListener('click', goToContactForm);
+
+    const waBtn = document.createElement('a');
+    waBtn.className = 'chat-action-btn chat-action-btn-whatsapp';
+    waBtn.href = 'https://wa.me/917259466505?text=Hi%20Harjeet%2C%20I%20chatted%20with%20your%20portfolio%20AI%20assistant%20and%20wanted%20to%20connect!';
+    waBtn.target = '_blank';
+    waBtn.rel = 'noopener';
+    waBtn.textContent = '💬 Message on WhatsApp';
+
+    row.appendChild(formBtn);
+    row.appendChild(waBtn);
+    messagesEl.appendChild(row);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
   async function sendMessage(text) {
     if (sending) return;
     sending = true;
@@ -75,12 +116,14 @@ const CHAT_API_URL = 'https://portfolio-website-five-chi-57.vercel.app/api/chat'
       if (!res.ok) throw new Error(data.error || 'Something went wrong.');
       addBubble(data.reply, 'assistant');
       history.push({ role: 'assistant', content: data.reply });
+      if (looksLikeContactIntent(text, data.reply)) addContactActions();
     } catch (err) {
       typingEl.remove();
       const message = err.message === 'NOT_CONFIGURED'
         ? "The chat backend isn't connected yet — this widget is ready to go once it's deployed. In the meantime, reach out via the Connect section below!"
         : "Sorry, I couldn't reach the assistant right now. Please try again shortly, or use the contact form below.";
       addBubble(message, 'assistant');
+      if (looksLikeContactIntent(text, '')) addContactActions();
     } finally {
       sending = false;
     }

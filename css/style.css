@@ -526,6 +526,20 @@ html.light-theme .cover-icon {
   line-height: 1.4;
 }
 
+/* ===== "Why hire me" cards ===== */
+.why-card {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.why-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 16px 36px -18px var(--shadow-glow);
+}
+
 /* ===== Icon tile ===== */
 .icon-tile {
   display: inline-flex;
@@ -652,6 +666,22 @@ html.light-theme .cover-icon {
   transition: gap 0.2s ease;
 }
 .resume-card:hover .resume-cta { gap: 0.7rem; }
+
+/* ===== Recruiter callout ===== */
+.recruiter-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  max-width: 44rem;
+  margin: 0 auto 2.75rem;
+  padding: 1.1rem 1.4rem;
+  border-radius: 0.9rem;
+  background-color: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
 
 /* ===== Form ===== */
 .form-input {
@@ -915,6 +945,41 @@ p.icon-link:hover { color: var(--text-secondary); transform: none; }
 @keyframes chatTypingBounce {
   0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
   30% { transform: translateY(-4px); opacity: 1; }
+}
+
+.chat-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-self: flex-start;
+  max-width: 90%;
+}
+.chat-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.6rem;
+  background-color: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  color: var(--accent);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.chat-action-btn:hover {
+  background-color: var(--accent);
+  color: #1a1408;
+  transform: translateY(-2px);
+}
+.chat-action-btn-whatsapp {
+  background-color: rgba(37, 211, 102, 0.12);
+  border-color: rgba(37, 211, 102, 0.4);
+  color: #25D366;
+}
+.chat-action-btn-whatsapp:hover {
+  background-color: #25D366;
+  color: #06210f;
 }
 
 .chat-input-row {
