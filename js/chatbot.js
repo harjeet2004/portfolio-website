@@ -4,7 +4,7 @@
 // ends up deployed -- UPDATE THIS after you deploy to Vercel.
 //
 // Example: 'https://harjeet-portfolio-chat.vercel.app/api/chat'
-const CHAT_API_URL = 'https://YOUR-VERCEL-PROJECT.vercel.app/api/chat';
+const CHAT_API_URL = 'https://portfolio-website-five-chi-57.vercel.app/api/chat';
 
 (function () {
   const toggle = document.getElementById('chat-toggle');
