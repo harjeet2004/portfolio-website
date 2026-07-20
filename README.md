@@ -15,7 +15,7 @@ A single-page portfolio built with plain HTML, CSS, and vanilla JavaScript. No b
 ├── /assets/resumes/        your resume PDFs go here
 ├── /api/chat.py            AI chatbot backend (Vercel Python function — NOT uploaded to Hostinger)
 ├── /api/profile_context.py the facts the chatbot is allowed to answer from
-├── /api/requirements.txt   Python deps for the backend
+├── requirements.txt        Python deps for the backend (must live at project root for Vercel)
 ├── .env.example            template for your Groq API key (copy to .env for local testing)
 ├── .gitignore              keeps .env and other secrets out of git
 └── README.md
