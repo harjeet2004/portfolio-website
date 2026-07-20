@@ -38,6 +38,14 @@ html.light-theme {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Mobile touch polish: remove the gray tap-flash and the ~300ms delay
+   before a tap registers, so buttons/links feel instant on touch devices. */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 body {
@@ -1058,6 +1066,17 @@ p.icon-link:hover { color: var(--text-secondary); transform: none; }
 @media (max-width: 480px) {
   #chat-widget { left: 1rem; bottom: 1rem; }
   .back-to-top { right: 1rem; bottom: 1rem; }
+}
+
+/* iOS Safari auto-zooms the whole page when a focused input's computed
+   font-size is under 16px -- both the contact form and the chat box were
+   set smaller than that for a tighter desktop look. Bump them to 16px only
+   on phone-sized viewports so mobile visitors never get an unwanted zoom. */
+@media (max-width: 640px) {
+  .form-input,
+  .chat-input {
+    font-size: 16px;
+  }
 }
 
 /* ===== Reduced motion ===== */
