@@ -84,7 +84,7 @@ const CHAT_API_URL = 'https://portfolio-website-five-chi-57.vercel.app/api/chat'
 
     const waBtn = document.createElement('a');
     waBtn.className = 'chat-action-btn chat-action-btn-whatsapp';
-    waBtn.href = 'https://wa.me/917259466505?text=Hi%20Harjeet%2C%20I%20explored%20your%20portfolio%20and%20chatted%20with%20your%20AI%20assistant%2C%20and%20wanted%20to%20connect%20directly%21';
+    waBtn.href = 'https://wa.me/917259466505?text=Hi%20Harjeet%2C%20I%20explored%20your%20portfolio%20and%20profile%20and%20wanted%20to%20connect%20directly%21';
     waBtn.target = '_blank';
     waBtn.rel = 'noopener';
     waBtn.textContent = '💬 Message on WhatsApp';
