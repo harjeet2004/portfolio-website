@@ -20,11 +20,17 @@ Redis, extra setup for a portfolio demo) -- keep an eye on usage in the Groq con
 
 import json
 import os
+import sys
 from http.server import BaseHTTPRequestHandler
 
 from groq import Groq
 
-from profile_context import SYSTEM_PROMPT
+# Vercel's Python loader imports this file directly without adding its own
+# directory to sys.path, so a bare sibling import (profile_context.py lives
+# right next to this file) fails at runtime with ModuleNotFoundError even
+# though the file is right there. Add the directory explicitly first.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from profile_context import SYSTEM_PROMPT  # noqa: E402 -- must follow the sys.path fix above
 
 MODEL_NAME = "llama-3.3-70b-versatile"
 MAX_MESSAGE_CHARS = 600
