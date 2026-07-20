@@ -57,18 +57,27 @@
     return new THREE.Points(geo, mat);
   }
 
-  const cloudBlue = makeCloud(Math.floor(PARTICLE_COUNT * 0.6), 0xe8b54d, 3.2, 260);
-  const cloudCyan = makeCloud(Math.floor(PARTICLE_COUNT * 0.25), 0xf5d78e, 2.4, 300);
-  const cloudViolet = makeCloud(Math.floor(PARTICLE_COUNT * 0.15), 0x3b82f6, 2.8, 280);
+  // Dark theme wants pale, glowy highlights (they pop against a dark background).
+  // Those exact same pale tones would nearly vanish on a light background, so
+  // light theme uses deeper, more saturated colors instead of just dimming them.
+  const DARK_COLORS = [0xe8b54d, 0xf5d78e, 0x3b82f6];
+  const LIGHT_COLORS = [0xa0731f, 0xb5551f, 0x2563eb];
+
+  const cloudBlue = makeCloud(Math.floor(PARTICLE_COUNT * 0.6), DARK_COLORS[0], 3.2, 260);
+  const cloudCyan = makeCloud(Math.floor(PARTICLE_COUNT * 0.25), DARK_COLORS[1], 2.4, 300);
+  const cloudViolet = makeCloud(Math.floor(PARTICLE_COUNT * 0.15), DARK_COLORS[2], 2.8, 280);
+  const clouds = [cloudBlue, cloudCyan, cloudViolet];
   scene.add(cloudBlue, cloudCyan, cloudViolet);
 
-  // Light theme: additive blending washes out on white, so switch to normal
-  // blending with darker, fainter particles. Watches the theme toggle.
+  // Light theme: additive blending also washes out on white, so switch to
+  // normal blending too. Watches the theme toggle.
   function syncTheme() {
     const light = document.documentElement.classList.contains('light-theme');
-    [cloudBlue, cloudCyan, cloudViolet].forEach((cloud) => {
+    const palette = light ? LIGHT_COLORS : DARK_COLORS;
+    clouds.forEach((cloud, i) => {
+      cloud.material.color.setHex(palette[i]);
       cloud.material.blending = light ? THREE.NormalBlending : THREE.AdditiveBlending;
-      cloud.material.opacity = light ? 0.35 : 0.75;
+      cloud.material.opacity = light ? 0.55 : 0.75;
       cloud.material.needsUpdate = true;
     });
   }
