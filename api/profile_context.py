@@ -5,8 +5,8 @@
 
 PROFILE_CONTEXT = """
 ABOUT HARJEET
-Harjeet Singh Pannu is a final-year B.Tech student in Electronics & Communication
-Engineering (ECE) at Vellore Institute of Technology (VIT), Chennai (2022-2026),
+Harjeet Singh Pannu is a 2026 graduate with a B.Tech in Electronics & Communication
+Engineering (ECE) from Vellore Institute of Technology (VIT), Chennai (2022-2026),
 CGPA 9.4/10. He works at the intersection of finance, hardware engineering, and
 AI-driven product management -- he is an Oracle Certified Foundations Associate in
 Agentic AI and has hands-on experience building full-stack products with Claude Code
