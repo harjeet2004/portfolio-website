@@ -1,5 +1,5 @@
 // ===== Role-cycling tagline =====
-const roles = ['Financial Analysis', 'VLSI & Semiconductors', 'Gaming Enthusiast'];
+const roles = ['Financial Analysis', 'VLSI & Semiconductors', 'AI Product Management'];
 let roleIndex = 0;
 const roleEl = document.getElementById('role-text');
 

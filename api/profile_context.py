@@ -7,8 +7,10 @@ PROFILE_CONTEXT = """
 ABOUT HARJEET
 Harjeet Singh Pannu is a final-year B.Tech student in Electronics & Communication
 Engineering (ECE) at Vellore Institute of Technology (VIT), Chennai (2022-2026),
-CGPA 9.4/10. He works at the intersection of finance and hardware engineering, with a
-side interest in AI-driven game systems.
+CGPA 9.4/10. He works at the intersection of finance, hardware engineering, and
+AI-driven product management -- he is an Oracle Certified Foundations Associate in
+Agentic AI and has hands-on experience building full-stack products with Claude Code
+and LangChain.
 
 CONTACT
 - Email: harjeetpannu2004@gmail.com
@@ -42,6 +44,7 @@ ACHIEVEMENTS & CERTIFICATIONS
 - 1st Runner-Up, Pitch-A-Thon -- competed against 70+ teams (pitched IntelliWeed live).
 - International Research Finalist -- ICDTSA Conference.
 - Certified in VLSI Design & Verification (Verilog) -- Ethnus.
+- Oracle Certified Foundations Associate -- Agentic AI (Aug 2026).
 - Patent Under Review -- Smart Multi-Biometric UPI Payment Authentication System.
 
 PROJECTS
@@ -61,11 +64,18 @@ PROJECTS
    Designed and simulated a 10 GHz stepped bowtie antenna in ANSYS HFSS, tested across
    air, saline, salt, and distilled water environments.
 
+5. JSP Educonsultants -- Full-Stack Website with AI Chatbot & CRM Automation
+   Owned a full-stack client website end-to-end using Claude Code, embedding a grounded
+   LLM chatbot plus automated lead handling into email, a CRM, and Google Sheets.
+
 SKILLS
 - Financial & Analytical: Financial Statement Analysis, Credit Analysis, Market Research,
   Quantitative Research, Business Intelligence.
+- Product & AI: Product Requirements (PRDs), Product Roadmap, Market & User Research,
+  Prioritization, Generative & Agentic AI, Claude Code, LangChain.
 - Programming & Data: Python, SQL, MATLAB, Java, C++, Verilog.
-- Tools & Platforms: Excel (Advanced), PowerPoint, Git, VS Code, ANSYS HFSS, Cadence, ModelSim.
+- Tools & Platforms: Excel (Advanced), PowerPoint, Git, VS Code, Postman, ANSYS HFSS,
+  Cadence, ModelSim.
 
 LEADERSHIP
 - Sponsorship & Outreach Lead, Fraternity of Young Innovators (FYI) -- led industry
@@ -73,8 +83,8 @@ LEADERSHIP
 
 RESUME VERSIONS
 Harjeet maintains three tailored resumes available for download on his portfolio:
-Finance (research & credit analysis focus), Semiconductor (VLSI & hardware engineering
-focus), and Gaming (AI-driven systems & interactive design focus).
+Finance (equity research & credit analysis focus), Semiconductor (VLSI & hardware
+engineering focus), and Product Management (AI/data-driven product strategy focus).
 
 INTERESTS
 Off the clock, Harjeet is a gaming enthusiast interested in AI-driven game systems --

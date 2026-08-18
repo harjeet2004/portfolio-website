@@ -34,9 +34,9 @@ Replace `assets/images/photo.jpeg` with your own headshot (keep the same filenam
 ### 2. Swap your resumes
 
 Drop your three PDFs into `assets/resumes/`, replacing:
-- `resume-finance.pdf`
-- `resume-semiconductor.pdf`
-- `resume-gaming.pdf`
+- `Harjeet_Singh_Pannu_Resume_Finance.pdf`
+- `Harjeet_Singh_Pannu_Resume_Semiconductor.pdf`
+- `Harjeet_Singh_Pannu_Resume_ProductManagement.pdf`
 
 Keep the filenames the same and the download cards in the Resume section will just work. If you rename them, update the `href` values in the Resume section of `index.html` to match.
 
@@ -84,7 +84,7 @@ Already done — the repo lives at [github.com/harjeet2004/portfolio-website](ht
    - `GROQ_API_KEY` = the key from Step 1
    - `ALLOWED_ORIGIN` = your Hostinger domain once you know it (e.g. `https://harjeetpannu.com`) — leave unset (defaults to `*`) until then.
 5. Deploy. Vercel gives you a URL like `https://portfolio-website-xxxx.vercel.app`. Your API endpoint is `https://portfolio-website-xxxx.vercel.app/api/chat`.
-6. Sanity check: open that URL in a browser — you should see `{"status": "ok", "model": "llama-3.3-70b-versatile"}`.
+6. Sanity check: open that URL in a browser — you should see `{"status": "ok", "model": "openai/gpt-oss-120b"}`.
 
 ### Step 4 — Point the widget at your backend
 Open `js/chatbot.js`, find the line near the top:

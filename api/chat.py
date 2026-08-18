@@ -32,7 +32,7 @@ from groq import Groq
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from profile_context import SYSTEM_PROMPT  # noqa: E402 -- must follow the sys.path fix above
 
-MODEL_NAME = "llama-3.3-70b-versatile"
+MODEL_NAME = "openai/gpt-oss-120b"
 MAX_MESSAGE_CHARS = 600
 MAX_HISTORY_TURNS = 6  # last N messages (user+assistant combined) kept for context
 MAX_REPLY_TOKENS = 400
