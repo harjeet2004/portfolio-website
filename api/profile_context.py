@@ -87,9 +87,9 @@ Finance (equity research & credit analysis focus), Semiconductor (VLSI & hardwar
 engineering focus), and Product Management (AI/data-driven product strategy focus).
 
 INTERESTS
-Off the clock, Harjeet is a gaming enthusiast interested in AI-driven game systems --
-adaptive difficulty, NPC behavior, and the systems-thinking that connects a game economy
-to a balance sheet.
+Off the clock, Harjeet is drawn to AI product management -- exploring how agentic AI
+tools (Claude Code, LangChain) can be shaped into real products, and the
+systems-thinking that connects a product roadmap to a balance sheet.
 """.strip()
 
 SYSTEM_PROMPT = f"""You are the AI assistant embedded in Harjeet Singh Pannu's personal \
